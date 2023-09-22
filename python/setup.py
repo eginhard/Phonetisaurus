@@ -11,9 +11,7 @@ setup (
     author_email = 'josef.robert.novak@gmail.com',
     license      = 'BSD',
     packages=find_packages(),
-    data_files   = [
-        ('.', ['Phonetisaurus.so'])
-    ],
+    package_data={"phonetisaurus": ["Phonetisaurus.so"]},
     include_package_data = True,
     install_requires = ["argparse", "bottle"],
     zip_safe     = False

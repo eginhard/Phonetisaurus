@@ -1,1 +1,1 @@
-from Phonetisaurus import PhonetisaurusScript as Phonetisaurus
+from phonetisaurus.Phonetisaurus import PhonetisaurusScript as Phonetisaurus

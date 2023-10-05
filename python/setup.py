@@ -1,10 +1,10 @@
 #!/usr/bin/python
 from setuptools import setup, find_packages
 import glob
-#Install phonetisaurus 
+#Install phonetisaurus
 setup (
     name         = 'phonetisaurus',
-    version      = '0.3',
+    version      = '0.3.1',
     description  = 'Phonetisaurus G2P python package (OpenFst-1.6.x)',
     url          = 'http://code.google.com/p/phonetisaurus',
     author       = 'Josef Novak',

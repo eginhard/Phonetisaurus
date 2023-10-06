@@ -1,3 +1,17 @@
+This fork of
+[AdolfVonKleist/Phonetisaurus](https://github.com/AdolfVonKleist/Phonetisaurus)
+includes the `Phonetisaurus.so` library for the Python bindings in the
+repository, so that they can be installed without having to compile
+Phonetisaurus first:
+
+```shell
+# Using pip
+pip install "git+https://github.com/eginhard/Phonetisaurus#subdirectory=python"
+
+# Using poetry
+poetry add "git+https://github.com/eginhard/Phonetisaurus#subdirectory=python"
+```
+
 ## Phonetisaurus G2P ##
 [![Build Status](https://travis-ci.org/AdolfVonKleist/Phonetisaurus.svg?branch=master)](https://travis-ci.org/AdolfVonKleist/Phonetisaurus)
 

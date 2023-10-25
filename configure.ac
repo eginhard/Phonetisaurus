@@ -68,7 +68,6 @@ AC_CHECK_TYPES([ptrdiff_t])
 # Checks for library functions.
 AC_FUNC_STRTOD
 AC_CHECK_FUNCS([memmove strchr strrchr strspn])
-AC_CHECK_MATH_FUNC(exp10)
 
 AC_ARG_WITH([openfst-includes],
 	[AS_HELP_STRING([--with-openfst-includes],
@@ -111,7 +110,7 @@ CPPFLAGS="${OPENFST_CXXFLAGS}"
 if test x"$user_openfst_libs_path" != x; then
    LDFLAGS="-L$user_openfst_libs_path ${CHECK_LIBRARIES}"
    AC_LINK_IFELSE([AC_LANG_PROGRAM([#include <fst/fst.h>], [std::unique_ptr<fst::FstHeader> ifst(fst::FstHeader());])],
-       [have_openfst=true],                                           
+       [have_openfst=true],
        [have_openfst=false])
    if test x"$have_openfst" = xtrue; then
       OPENFST_LDFLAGS="$LDFLAGS"
@@ -120,7 +119,7 @@ if test x"$user_openfst_libs_path" != x; then
 else
    LDFLAGS="${CHECK_LIBRARIES}"
    AC_LINK_IFELSE([AC_LANG_PROGRAM([#include <fst/fst.h>], [std::unique_ptr<fst::FstHeader> ifst(fst::FstHeader());])],
-       [have_openfst=true],                                           
+       [have_openfst=true],
        [have_openfst=false])
    if test x"$have_openfst" = xtrue; then
       OPENFST_LDFLAGS="$LDFLAGS"
@@ -128,7 +127,7 @@ else
    else
       LDFLAGS="-L/usr/local/lib ${CHECK_LIBRARIES}"
       AC_LINK_IFELSE([AC_LANG_PROGRAM([#include <fst/fst.h>], [std::unique_ptr<fst::FstHeader> ifst(fst::FstHeader());])],
-          [have_openfst=1],                                           
+          [have_openfst=1],
           [have_openfst=0])
       if test x"$have_openfst" = xtrue; then
          OPENFST_LDFLAGS="$LDFLAGS"

@@ -32,11 +32,9 @@ AC_SUBST([PYTHON])
 if test x"$PYTHON" != x && test "$PYTHON" != ":"; then
    PYTHON_CPPFLAGS=
    PYTHON_LIBS=
-   AX_PYTHON_DEVEL([>= '$PYTHON_VERSION'])
+   PYTHONINC=`$PYTHON -c "import sysconfig; print(sysconfig.get_path('include'))" 2>/dev/null`
+   AC_SUBST([PYTHONINC])
 fi
-AM_CONDITIONAL([HAVE_PYTHON_DEV], [test x"$PYTHON" != x && test "$PYTHON" != :])
-AC_SUBST([PYTHON_CPPFLAGS])
-AC_SUBST([PYTHON_LIBS])
 
 AC_LANG(C++)
 # Checks for programs.

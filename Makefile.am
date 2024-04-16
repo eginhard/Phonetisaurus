@@ -108,12 +108,10 @@ python/Phonetisaurus-binding.cc: $(top_srcdir)/python/phonetisaurus-module.py
 
 CLEANFILES = python/Phonetisaurus-binding.cc
 
-if HAVE_PYTHON_DEV
 pyexec_LTLIBRARIES = Phonetisaurus.la
 nodist_Phonetisaurus_la_SOURCES = python/Phonetisaurus-binding.cc src/lib/util.cc src/include/util.h
-Phonetisaurus_la_CXXFLAGS = $(OPENFST_CXXFLAGS) $(PYTHON_CPPFLAGS) $(UTFCPP_CXXFLAGS) -funroll-loops -ffast-math
+Phonetisaurus_la_CXXFLAGS = -I$(PYTHONINC) $(OPENFST_CXXFLAGS) $(PYTHON_CPPFLAGS) $(UTFCPP_CXXFLAGS) -funroll-loops -ffast-math
 Phonetisaurus_la_LIBADD = $(OPENFST_LDFLAGS) $(PYTHON_LIBS)
 Phonetisaurus_la_LDFLAGS = -avoid-version -module
-endif
 endif
 endif

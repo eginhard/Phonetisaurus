@@ -19,7 +19,7 @@ setup (
     license      = "BSD",
     packages=find_packages(),
     package_data={"phonetisaurus": ["Phonetisaurus.so"]},
-    install_requires = ["argparse", "bottle"],
+    install_requires = ["bottle"],
     zip_safe     = False,
     python_requires=">=3.6.0",
     project_urls={

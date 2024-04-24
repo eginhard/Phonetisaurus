@@ -100,8 +100,8 @@ RUN "${PYBIN}/pip" wheel -v "/src/Phonetisaurus/python" -w "/tmp/wheelhouse"
 # See https://github.com/pypa/manylinux/tree/manylinux2014
 RUN auditwheel repair /tmp/wheelhouse/phonetisaurus*.whl -w /wheelhouse/
 
-# Copies over argparse+bottle wheels.
-RUN cp /tmp/wheelhouse/{argparse,bottle}*.whl /wheelhouse
+# Copies over bottle wheel.
+RUN cp /tmp/wheelhouse/bottle*.whl /wheelhouse
 
 # Removes the non-repaired wheels.
 RUN rm -rd /tmp/wheelhouse
@@ -116,8 +116,7 @@ COPY --from=build-wheels /wheelhouse /wheelhouse
 
 # Installs the wheels in all our Pythons and try to import Phonetisaurus.
 RUN for PYBIN in /opt/python/cp*/bin; do \
-    "${PYBIN}/pip" install argparse \
-    && "${PYBIN}/pip" install phonetisaurus-bindings --no-index -f /wheelhouse \
+    "${PYBIN}/pip" install phonetisaurus-bindings --no-index -f /wheelhouse \
     && "${PYBIN}/python" -c "import phonetisaurus" \
     || exit 1; \
 done
